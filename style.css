@@ -162,12 +162,11 @@ body .chatbotSection{
 
 
 .chatbotSection  .chatInput{
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     border-top: 1px solid #0000007b;
     width: 100%;
-    height: auto;
     display: flex;
     gap: .3rem;
     padding: 5px 1.2rem;
@@ -212,7 +211,7 @@ body .chatbotSection{
         box-shadow: none;
     }
     .chatbotSection .chatbox{
-        height: 90vh;
+        height: 87vh;
     }
     .chatbotSection .heading{
         border-radius: 0;
