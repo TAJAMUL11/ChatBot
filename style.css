@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    list-style: none;
+    
+}
+
+:root{
+    --BG_Primary :#1e8fff53 ;
+    --BG_secondary : #1e90ff;
+    --Border-radius : 7px;
+    --Box-shadow : 0 0 0.5rem #00000075;
+    --Text-color : #fefefe;
+
+}
+body #chatbot-toggler{
+    position: fixed;
+    bottom: 35px;
+    right: 40px;
+    height: 50px;
+    width: 50px;
+    background-color: var(--BG_secondary);
+    border: none;
+    outline: none;
+    color: var(--Text-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease-in-out;
+}
+body #chatbot-toggler:hover{
+    box-shadow: var(--Box-shadow);
+}
+
+#chatbot-toggler span {
+    position: absolute;
+}
+.showChatBot #chatbot-toggler span:first-child,
+#chatbot-toggler span:last-child{
+    opacity: 0;
+}
+.showChatBot #chatbot-toggler{
+    transform: rotate(360deg);
+    transition: all 0.4s ease-in-out;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+body .chatbotSection{
+    overflow-x: hidden;
+    background-color: var(--Text-color);
+    box-shadow: var(--Box-shadow);
+    border-radius: var(--Border-radius);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    bottom: 100px;
+    right: 70px;
+    width: 500px;
+    transform: scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+    transform-origin: bottom right;
+
+}
+.showChatBot #chatbot-toggler span:last-child{
+    opacity: 1;
+}
+
+.showChatBot .chatbotSection{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+
+}
+.chatbotSection .heading{
+    position: relative;
+    background-color: var(--BG_secondary);
+    width: 100%;
+    text-align: center;
+    padding: .6rem 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.chatbotSection .heading h2{
+    font-size: 2rem;
+    color: var(--Text-color);   
+}
+.chatbotSection .heading span{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    color: var(--Text-color);
+    cursor: pointer;
+    font-size: 1.6rem;
+    transform: translateY(-50%);
+    display: none;
+    box-shadow: var(--Box-shadow);
+    border-radius: 20%;
+}
+
+.chatbotSection .chatbox{
+    height: 72vh;
+    overflow-y: auto;
+    padding: 1.8rem 1.2rem 6.5rem;
+}
+.chatbox .chat{
+    display: flex;
+}
+
+.chatbox .chat p{
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0.7rem 0.7rem 0 0.7rem;
+    max-width: 85%;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    background-color: var(--BG_Primary);
+}
+
+.chatbox .incoming p{
+    white-space: pre-wrap;
+    background-color: #1e8fff84;
+}
+.chatbox .outgoing{
+    justify-content: flex-end;
+    margin: 1.3rem 0;
+}
+
+.chatbox .chat span{
+    font-size: 2rem;
+    color: brown;
+    animation : changeColor 2s ease-in-out infinite;
+    padding: 0 0.3rem;
+}
+
+@keyframes changeColor {
+    0%{
+        filter: hue-rotate(90deg);
+    }
+    50%{
+        filter: hue-rotate(180deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+    
+}
+
+
+.chatbotSection  .chatInput{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #0000007b;
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: .3rem;
+    padding: 5px 1.2rem;
+    background-color: #fefefe;
+}
+
+.chatbotSection  .chatInput .textArea{
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    resize: none;
+    padding: 1rem 1rem 1rem 0;
+    height: 55px;
+    width: 100%;
+    color: #000000d0;
+    max-height: 180px;   
+}
+
+.chatInput #send-btn{
+    align-self: flex-end;
+    height: 55px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 55px;
+    visibility: hidden;
+}
+
+.chatbotSection  .chatInput .textArea:valid ~ span i{
+    visibility: visible;
+}
+
+
+
+
+@media only screen and (max-width : 620px) {
+    body .chatbotSection{
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .chatbotSection .chatbox{
+        height: 90vh;
+    }
+    .chatbotSection .heading{
+        border-radius: 0;
+    }
+    .chatbotSection .heading span{
+        display: block;
+    }  
+}

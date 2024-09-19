@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="chatbot">
+    <title>Custom Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="showChatBot">
+    <button id="chatbot-toggler">
+        <span><i class='bx bx-conversation'></i></span>
+        <span><i class='bx bx-x'></i></span>
+    </button>
+    <section class="chatbotSection">
+        <header class="heading">
+            <h2>ChatBot</h2>
+            <span class="mobileClose"><i class='bx bx-x'></i></span>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span><i class='bx bx-bot'></i></span> 
+                <p>Hi there, How can I assist you today?</p>
+            </li>
+           
+        </ul>
+        <div class="chatInput">
+            <textarea placeholder="Enter a message..." class="textArea" required></textarea>
+            <span id="send-btn"><i class='bx bx-send'></i></span>
+        </div>
+
+    </section>
+
+<script type="module" src="index.js" defer></script>    
+</body>
+</html>
