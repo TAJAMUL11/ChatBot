@@ -38,7 +38,6 @@ function generateResponse(inComingChatLi) {
     messageElement.textContent = data.candidates[0].content.parts[0].text;
     
   }).catch(() => {
-    messageElement.classList.add('Oops')
     messageElement.textContent = "Oops, Something went wrong, Please try again.";
 
   }).finally(() => 

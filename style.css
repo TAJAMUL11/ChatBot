@@ -134,6 +134,7 @@ body .chatbotSection{
     white-space: pre-wrap;
     background-color: #1e8fff84;
 }
+
 .chatbox .outgoing{
     justify-content: flex-end;
     margin: 1.3rem 0;
